@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>menuhover</title>
+  <style>
+    *{padding: 0;margin: 0;}
+    ul,ol,li{list-style: none;}
+    a{color: #000;text-decoration: none;}
+    .clear:after{content: '';display: block;clear:both;}
+
+    header{background-color: #ccc;height: 50px;line-height: 50px;}
+    #h_wrap{}
+    #heaer_cetner{width: 1200px;margin: 0 auto;position: relative;}
+    .logo{float: left;}
+    .gnb{float: right;}
+    .gnb > li{float: left;width: 100px;padding:0 25px;text-align: center;}
+    .gnb > li > a{display: block;height: 100%; background-color: yellow;}
+    .gnb > li > a::after{content: '';display:block;width: 0%;height: 2px;background-color: red;
+              position: relative;z-index: 1;left: 50%;transition: all 0.5s;}
+    .gnb > li:hover > a::after{width: 100%;left: 0%;}
+    .sub_bg{display: none; position: absolute;top:50px;width: 100%;height: 150px; 
+            background-color: #fff;border-bottom: 3px solid red;}
+    .gnb > li > .snb{display: none;position: relative;padding-top: 20px;} 
+    .gnb > li > .snb > li{font-size: 14px;line-height: 25px;}
+  </style>
+</head>
+<body>
+  <header>
+    <div id="h_wrap">
+      <div class="sub_bg"></div>
+      <div id="heaer_cetner" class="clear">
+        <div class="logo">
+          LOGO
+        </div>
+        
+        <ul class="gnb clear">
+          <li>
+            <a href="#">MENU</a>
+            <ul class="snb">
+              <li><a href="#">SUB MENU1</a></li>
+              <li><a href="#">SUB MENU2</a></li>
+              <li><a href="#">SUB MENU3</a></li>
+              <li><a href="#">SUB MENU4</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">MENU</a>
+            <ul class="snb">
+              <li><a href="#">SUB MENU1</a></li>
+              <li><a href="#">SUB MENU2</a></li>
+              <li><a href="#">SUB MENU3</a></li>
+              <li><a href="#">SUB MENU4</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">MENU</a>
+            <ul class="snb">
+              <li><a href="#">SUB MENU1</a></li>
+              <li><a href="#">SUB MENU2</a></li>
+              <li><a href="#">SUB MENU3</a></li>
+              <li><a href="#">SUB MENU4</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">MENU</a>
+            <ul class="snb">
+              <li><a href="#">SUB MENU1</a></li>
+              <li><a href="#">SUB MENU2</a></li>
+              <li><a href="#">SUB MENU3</a></li>
+              <li><a href="#">SUB MENU4</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  <script src="./jquery-3.3.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      // $('.gnb').mouseover(function(){
+      // });
+      // $('.gnb').mouseleave(function(){
+      // });
+      $('.gnb > li').mouseenter(function(){
+        $('.sub_bg').stop().slideDown();
+        $('.snb').stop().show();
+      });
+      $('.gnb > li').mouseleave(function(){
+        $('.sub_bg').stop().slideUp();
+        $('.snb').stop().hide();
+      });
+    });
+  </script>
+</body>
+</html>
