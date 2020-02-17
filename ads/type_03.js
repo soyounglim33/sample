@@ -2,16 +2,21 @@ $(document).ready(function(){
 
   //전체메뉴 눌렀을 때
   $('.all_menu h2 a').click(function(){
-    $('.bg__1depth').toggle();
-    // $(this).children('.category__2depth').toggle();
-    // if(!$('.category__1depth_list > li:nth-child(2)').is('active')){
-      // $('.category__1depth_list > li').removeClass('active');
-      $('.category__1depth_list > li:nth-child(2)').toggleClass('active');
-      $('.category__1depth_list > li:nth-child(2)').children('.category__2depth').toggle();
-    // }
+    $('.allmenu_bg').stop().slideToggle();
+    $('.all_menu_cont').stop().slideToggle();
+    $('#content .dim_bg').toggle();
+
 
     //메뉴 버튼 온오프
     $(this).toggleClass('on');  
+  });
+
+
+  //전체메뉴 닫기
+  $('.all_menu_close a').click(function(){
+    $('.allmenu_bg').slideUp();
+    $('.all_menu_cont').slideUp();
+    $('#content .dim_bg').hide();
   });
 
   //대메뉴 마우스 올렸을 때
@@ -33,13 +38,12 @@ $(document).ready(function(){
     $('.gnb_sub_img').toggle();
   });
 
-
   //슬라이드
   var list = 0;
   var width = $('.panel div').width();
   $('.visual_left').click(function(){
-    if(list == 1){
-      list = 3;
+    if(list == 0){
+      list = 2;
     }else{
       list = list - 1;
     }
